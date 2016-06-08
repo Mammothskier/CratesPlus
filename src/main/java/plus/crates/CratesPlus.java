@@ -364,10 +364,16 @@ public class CratesPlus extends JavaPlugin implements Listener {
 						}
 					}
 				}
-				Location locationObj = new Location(Bukkit.getWorld(strings.get(0)), Double.parseDouble(strings.get(1)), Double.parseDouble(strings.get(2)), Double.parseDouble(strings.get(3)));
-				Block block = locationObj.getBlock();
-				if (block == null)
-					continue;
+				try {
+					Location locationObj = new Location(Bukkit.getWorld(strings.get(0)), Double.parseDouble(strings.get(1)), Double.parseDouble(strings.get(2)), Double.parseDouble(strings.get(3)));
+					Block block = locationObj.getBlock();
+					if (block == null)
+						continue;
+				} catch (Exception exception) {
+						console.sendMessage(ChatColor.RED + "WARNING: Block data for " + location + "not found or corrupted");
+						exception.printStackTrace();
+						continue;
+				}
 				Location location1 = locationObj.getBlock().getLocation().add(0.5, 0.5, 0.5);
 				crate.loadHolograms(location1);
 				final CratesPlus cratesPlus = this;
