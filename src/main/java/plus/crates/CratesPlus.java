@@ -364,9 +364,10 @@ public class CratesPlus extends JavaPlugin implements Listener {
 						}
 					}
 				}
+Block block;
 				try {
 					Location locationObj = new Location(Bukkit.getWorld(strings.get(0)), Double.parseDouble(strings.get(1)), Double.parseDouble(strings.get(2)), Double.parseDouble(strings.get(3)));
-					Block block = locationObj.getBlock();
+					block = locationObj.getBlock();
 					if (block == null)
 						continue;
 				} catch (Exception exception) {
