@@ -370,7 +370,7 @@ public class CratesPlus extends JavaPlugin implements Listener {
 					if (block == null)
 						continue;
 				} catch (Exception exception) {
-						console.sendMessage(ChatColor.RED + "WARNING: Block data for " + location + "not found or corrupted");
+						 Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "WARNING: Block data for " + location + "not found or corrupted");
 						exception.printStackTrace();
 						continue;
 				}
